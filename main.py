@@ -1,38 +1,14 @@
-class Carro:
-    def __init__(self,cor,modelo):
-        self.cor=cor
-        self.modelo=modelo
+class Funcionario:
+    def __init__(self, nome, cpf, salario):
+        self._nome = nome
+        self._cpf = cpf
+        self._salario = salario
 
-    def acelerar(self):
-        print(f"O {self.modelo} está acelerando!")
+class Gerente(Funcionario):
+    def __init__(self, nome, cpf, salario, senha, qtd_funcionarios):
+        super().__init__(nome, cpf, salario)
+        self._senha = senha
+        self._qtd_funcionarios = qtd_funcionarios
 
-    def frear(self):
-        print(f"O {self.modelo} está freando!")
-
-    def ligar_farois(self):
-        self.farois_ligados = True
-        print("Faróis ligados!")
-
-    def desligar_farois(self):
-        self.farois_ligados = False
-        print("Faróis desligados!")
-
-    def get_cor(self):
-        return self.__cor
-
-    def set_cor(self, cor):
-        self.__cor = cor
-
-meu_carro=Carro('vermelho','Fusca')
-meu_carro.ligar_farois()
-print(meu_carro.farois_ligados)
-meu_carro.desligar_farois()
-
-meu_carro.set_cor("rosa")
-print(meu_carro.get_cor())
-
-print(meu_carro.cor)
-print(meu_carro.modelo)
-
-meu_carro.acelerar()
-meu_carro.frear()
+g1 = Gerente("Maria",123456789,2,123,3)
+print(g1._nome)
